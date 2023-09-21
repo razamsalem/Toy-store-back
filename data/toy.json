@@ -78,7 +78,7 @@
     },
     {
         "_id": "t108",
-        "name": "Spidernan puzzle",
+        "name": "Spiderman puzzle",
         "price": 346,
         "labels": [
             "Baby",
@@ -87,5 +87,60 @@
         ],
         "createdAt": 1631031801852,
         "inStock": false
+    },
+    {
+        "_id": "t109",
+        "name": "Grizzly Gears",
+        "price": 49.99,
+        "labels": [
+            "Box game",
+            "Baby",
+            "Puzzle"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": true
+    },
+    {
+        "_id": "t110",
+        "name": "SPLASH & FUN FAMILY POOL",
+        "price": 599.99,
+        "labels": [
+            "Family",
+            "Outdoor"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": true
+    },
+    {
+        "_id": "t111",
+        "name": "DELUXE LED SCOOTER",
+        "price": 49.99,
+        "labels": [
+            "Outdoor",
+            "Baby",
+            "On wheels"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": true
+    },
+    {
+        "_id": "t112",
+        "name": "Water gun",
+        "price": 2.99,
+        "labels": [
+            "Action"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": false
+    },
+    {
+        "_id": "t113",
+        "name": "Rubiks master 4X4 cube",
+        "price": 29.99,
+        "labels": [
+            "Puzzle"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": true
     }
 ]
