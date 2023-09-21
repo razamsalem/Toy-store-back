@@ -1,0 +1,91 @@
+[
+    {
+        "_id": "t101",
+        "name": "Talking Doll",
+        "price": 12,
+        "labels": [
+            "Doll",
+            "Battery Powered",
+            "Baby"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
+    },
+    {
+        "_id": "t102",
+        "name": "RC Car",
+        "price": 89,
+        "labels": [
+            "Outdoor",
+            "On wheels",
+            "Battery Powered"
+        ],
+        "createdAt": 1631031801011,
+        "inStock": false,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
+    },
+    {
+        "_id": "t103",
+        "name": "Super Robot",
+        "price": 999,
+        "labels": [
+            "Battery Powered"
+        ],
+        "createdAt": 16310318013002,
+        "inStock": false,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
+    },
+    {
+        "_id": "t105",
+        "name": "Outdoor Adventure Kit",
+        "price": 79,
+        "labels": [
+            "Art",
+            "Outdoor"
+        ],
+        "createdAt": 1631031801498,
+        "inStock": true
+    },
+    {
+        "_id": "t106",
+        "name": "Racing Car",
+        "price": 33,
+        "labels": [
+            "Car",
+            "On wheels",
+            "Outdoor"
+        ],
+        "createdAt": 1631031801424,
+        "inStock": true
+    },
+    {
+        "_id": "t107",
+        "name": "Taki",
+        "price": 876,
+        "labels": [
+            "Cards",
+            "Family"
+        ],
+        "createdAt": 1631031801963,
+        "inStock": true
+    },
+    {
+        "_id": "t108",
+        "name": "Spidernan puzzle",
+        "price": 346,
+        "labels": [
+            "Baby",
+            "Art",
+            "Puzzle"
+        ],
+        "createdAt": 1631031801852,
+        "inStock": false
+    }
+]
