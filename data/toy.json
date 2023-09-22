@@ -2,7 +2,7 @@
     {
         "_id": "t101",
         "name": "Talking Doll",
-        "price": 12,
+        "price": 12.99,
         "labels": [
             "Doll",
             "Battery Powered",
@@ -17,7 +17,7 @@
     {
         "_id": "t102",
         "name": "RC Car",
-        "price": 89,
+        "price": 89.99,
         "labels": [
             "Outdoor",
             "On wheels",
@@ -32,7 +32,7 @@
     {
         "_id": "t103",
         "name": "Super Robot",
-        "price": 999,
+        "price": 24.99,
         "labels": [
             "Battery Powered"
         ],
@@ -45,48 +45,60 @@
     {
         "_id": "t105",
         "name": "Outdoor Adventure Kit",
-        "price": 79,
+        "price": 79.99,
         "labels": [
             "Art",
             "Outdoor"
         ],
         "createdAt": 1631031801498,
-        "inStock": true
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t106",
         "name": "Racing Car",
-        "price": 33,
+        "price": 29.99,
         "labels": [
             "Car",
             "On wheels",
             "Outdoor"
         ],
         "createdAt": 1631031801424,
-        "inStock": true
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t107",
         "name": "Taki",
-        "price": 876,
+        "price": 9.99,
         "labels": [
             "Cards",
             "Family"
         ],
         "createdAt": 1631031801963,
-        "inStock": true
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t108",
         "name": "Spiderman puzzle",
-        "price": 346,
+        "price": 29.99,
         "labels": [
             "Baby",
             "Art",
             "Puzzle"
         ],
         "createdAt": 1631031801852,
-        "inStock": false
+        "inStock": false,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t109",
@@ -109,7 +121,10 @@
             "Outdoor"
         ],
         "createdAt": 1631031801852,
-        "inStock": true
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t111",
@@ -121,7 +136,10 @@
             "On wheels"
         ],
         "createdAt": 1631031801852,
-        "inStock": true
+        "inStock": true,
+        "msgs": [
+            "Dummy msg from Backend..."
+        ]
     },
     {
         "_id": "t112",
@@ -136,7 +154,7 @@
     {
         "_id": "t113",
         "name": "Rubiks master 4X4 cube",
-        "price": 29.99,
+        "price": 19.99,
         "labels": [
             "Puzzle"
         ],
