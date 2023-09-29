@@ -1,4 +1,4 @@
-mister-backend is a powerful backend with:
+ToyJoy backend is a powerful backend with:
 *. Auth and REST
 *. Route splitting
 *. Middlewares
