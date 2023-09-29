@@ -12,8 +12,8 @@ async function query(filterBy = { txt: '' }) {
         }
         const collection = await dbService.getCollection('toy')
         var toys = await collection.find(criteria).toArray()
-        logger.debug('Collection "toy" found successfully')
         return toys
+        logger.debug('Collection "toy" found successfully')
     } catch (err) {
         logger.error('Cannot find toys', err)
         throw err
