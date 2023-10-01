@@ -1,8 +1,8 @@
-import {logger} from '../../services/logger.service.js'
+import { logger } from '../../services/logger.service.js'
 // import {socketService} from '../../services/socket.service.js'
-import {userService} from '../user/user.service.js'
-import {authService} from '../auth/auth.service.js'
-import {reviewService} from './review.service.js'
+import { userService } from '../user/user.service.js'
+import { authService } from '../auth/auth.service.js'
+import { reviewService } from './review.service.js'
 
 export async function getReviews(req, res) {
     try {
@@ -30,23 +30,23 @@ export async function deleteReview(req, res) {
 
 
 export async function addReview(req, res) {
-    
-    var {loggedinUser} = req
- 
+    console.log('logged user:', req.loggedinUser)
+    var { loggedinUser } = req
+
     try {
-        var review = req.body
+        let review = req.body
         review.byUserId = loggedinUser._id
         review = await reviewService.add(review)
-        
+
         // prepare the updated review for sending out
-        review.aboutUser = await userService.getById(review.aboutUserId)
-        
+        // review.aboutUser = await userService.getById(review.aboutUserId)
+
         // Give the user credit for adding a review
         // var user = await userService.getById(review.byUserId)
         // user.score += 10
-        loggedinUser.score += 10
+        // loggedinUser.score += 10
 
-        loggedinUser = await userService.update(loggedinUser)
+        // loggedinUser = await userService.update(loggedinUser)
         review.byUser = loggedinUser
 
         // User info is saved also in the login-token, update it
@@ -58,7 +58,7 @@ export async function addReview(req, res) {
 
         // socketService.broadcast({type: 'review-added', data: review, userId: loggedinUser._id})
         // socketService.emitToUser({type: 'review-about-you', data: review, userId: review.aboutUser._id})
-        
+
         const fullUser = await userService.getById(loggedinUser._id)
         // socketService.emitTo({type: 'user-updated', data: fullUser, label: fullUser._id})
 
@@ -69,4 +69,3 @@ export async function addReview(req, res) {
         res.status(400).send({ err: 'Failed to add review' })
     }
 }
-

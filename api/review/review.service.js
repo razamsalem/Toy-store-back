@@ -1,12 +1,13 @@
-import {dbService} from '../../services/db.service.js'
-import {logger} from '../../services/logger.service.js'
-import {asyncLocalStorage} from '../../services/als.service.js'
+import { dbService } from '../../services/db.service.js'
+import { logger } from '../../services/logger.service.js'
+// import { asyncLocalStorage } from '../../services/als.service.js'
 import mongodb from 'mongodb'
-const {ObjectId} = mongodb
+const { ObjectId } = mongodb
 
 async function query(filterBy = {}) {
     try {
         const criteria = _buildCriteria(filterBy)
+        console.log(criteria)
         const collection = await dbService.getCollection('review')
         // const reviews = await collection.find(criteria).toArray()
         var reviews = await collection.aggregate([
@@ -16,7 +17,7 @@ async function query(filterBy = {}) {
             {
                 $lookup:
                 {
-                    localField: 'byUserId',
+                    localField: 'userId',
                     from: 'user',
                     foreignField: '_id',
                     as: 'byUser'
@@ -28,24 +29,25 @@ async function query(filterBy = {}) {
             {
                 $lookup:
                 {
-                    localField: 'aboutUserId',
-                    from: 'user',
+                    localField: 'toyId',
+                    from: 'toy',
                     foreignField: '_id',
-                    as: 'aboutUser'
+                    as: 'toy'
                 }
             },
             {
-                $unwind: '$aboutUser'
+                $unwind: '$toy'
             }
         ]).toArray()
         reviews = reviews.map(review => {
+            console.log(review.txt)
             review.byUser = { _id: review.byUser._id, fullname: review.byUser.fullname }
-            review.aboutUser = { _id: review.aboutUser._id, fullname: review.aboutUser.fullname }
-            delete review.byUserId
-            delete review.aboutUserId
+            review.toy = { _id: review.toy._id, name: review.toy.name }
+            delete review.userId
+            delete review.toyId
             return review
         })
-
+        // console.log('reviews after map:', reviews)
         return reviews
     } catch (err) {
         logger.error('cannot find reviews', err)
@@ -62,7 +64,7 @@ async function remove(reviewId) {
         // remove only if user is owner/admin
         const criteria = { _id: ObjectId(reviewId) }
         if (!loggedinUser.isAdmin) criteria.byUserId = ObjectId(loggedinUser._id)
-        const {deletedCount} = await collection.deleteOne(criteria)
+        const { deletedCount } = await collection.deleteOne(criteria)
         return deletedCount
     } catch (err) {
         logger.error(`cannot remove review ${reviewId}`, err)
@@ -70,13 +72,15 @@ async function remove(reviewId) {
     }
 }
 
+
 async function add(review) {
     try {
         const reviewToAdd = {
-            byUserId: ObjectId(review.byUserId),
-            aboutUserId: ObjectId(review.aboutUserId),
+            userId: ObjectId(review.byUserId),
+            toyId: ObjectId(review.toyId),
             txt: review.txt
         }
+
         const collection = await dbService.getCollection('review')
         await collection.insertOne(reviewToAdd)
         return reviewToAdd
@@ -88,7 +92,8 @@ async function add(review) {
 
 function _buildCriteria(filterBy) {
     const criteria = {}
-    if (filterBy.byUserId) criteria.byUserId = filterBy.byUserId
+    if (filterBy.byUserId) criteria.userId = ObjectId(filterBy.byUserId)
+    if (filterBy.byToyId) criteria.toyId = ObjectId(filterBy.byToyId)
     return criteria
 }
 
@@ -97,3 +102,4 @@ export const reviewService = {
     remove,
     add
 }
+
