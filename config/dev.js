@@ -1,4 +1,4 @@
 export default {
-    dbURL: 'mongodb://127.0.0.1:27017',
+    dbURL: 'mongodb+srv://raz:123raz456@cluster0.8wyfytd.mongodb.net/?retryWrites=true&w=majority',
     dbName: 'toysDB',
 }
